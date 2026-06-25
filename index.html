@@ -1529,7 +1529,7 @@
                             </div>
                             <a href="#inquiry" class="theme-btn">Get in Touch <span
                                     class="icon fas fa-angle-double-right"></span></a>
-                            <a href="careers.html" class="theme-btn">Apply Now <span
+                            <a href="#" class="theme-btn">Apply Now <span
                                     class="icon fas fa-angle-double-right"></span></a>
                         </div>
                     </div>
@@ -1590,8 +1590,8 @@
                                     <div class="dropdown-menu">
                                         <ul class="list-unstyled">
                                             <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                                            <li><a class="dropdown-item" href="careers.html">Careers</a></li>
-                                            <li><a class="dropdown-item" href="pressroom.html">Press Room</a></li>
+                                            <li><a class="dropdown-item" href="#">Careers</a></li>
+                                            <li><a class="dropdown-item" href="#">Press Room</a></li>
                                             <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
                                         </ul>
                                     </div>
@@ -1709,39 +1709,36 @@
                         <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                             <!-- Indicators -->
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="0"
+                                    class="active"></button>
                                 <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="1"></button>
                                 <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="2"></button>
                             </div>
-                            
+
                             <!-- Slides -->
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="./Images/MoU Signing Event/9.jpeg" 
-                                         class="d-block w-100" 
-                                         alt="CBG Plant - Atirath Holdings" 
-                                         loading="lazy">
+                                    <img src="./Images/MoU Signing Event/9.jpeg" class="d-block w-100"
+                                        alt="CBG Plant - Atirath Holdings" loading="lazy">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./Images/MoU Signing Event/21.jpeg" 
-                                         class="d-block w-100" 
-                                         alt="Green Energy - Atirath Holdings" 
-                                         loading="lazy">
+                                    <img src="./Images/MoU Signing Event/21.jpeg" class="d-block w-100"
+                                        alt="Green Energy - Atirath Holdings" loading="lazy">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./Images/MoU Signing Event/1.jpeg" 
-                                         class="d-block w-100" 
-                                         alt="Sustainable Energy - Atirath Holdings" 
-                                         loading="lazy">
+                                    <img src="./Images/MoU Signing Event/1.jpeg" class="d-block w-100"
+                                        alt="Sustainable Energy - Atirath Holdings" loading="lazy">
                                 </div>
                             </div>
-                            
+
                             <!-- Controls -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -1890,7 +1887,7 @@
                     <div class="industry-icon"><i class="fas fa-truck"></i></div>
                     <h3 class="industry-title">Transportation</h3>
                     <p class="industry-desc">Green fuel for buses, trucks, and commercial fleets reducing carbon
-                        emissions significantly.</p><a href="cbgproductionplant.html" class="industry-link"> Explore 
+                        emissions significantly.</p><a href="cbgproductionplant.html" class="industry-link"> Explore
                         <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="industry-card">
@@ -1922,8 +1919,7 @@
                     <div class="industry-icon"><i class="fas fa-recycle"></i></div>
                     <h3 class="industry-title">Waste Management</h3>
                     <p class="industry-desc">Converting agricultural and organic waste into valuable energy resources.
-                    </p><a href="satatscheme.html" class="industry-link">Explore <i
-                            class="fas fa-arrow-right"></i></a>
+                    </p><a href="satatscheme.html" class="industry-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="industry-card">
                     <div class="industry-icon"><i class="fas fa-leaf"></i></div>
@@ -2111,7 +2107,7 @@
     </footer>
 
     <!-- Floating Buttons -->
-    <div class="floating-buttons"><a href="careers.html">Apply Now</a></div>
+    <div class="floating-buttons"><a href="#">Apply Now</a></div>
 
     <!-- WhatsApp Float -->
     <a href="https://wa.me/919396692222?text=Hello%20Atirath%20Holdings%2C%20I'm%20interested%20in%20your%20CBG%20projects."
@@ -2137,7 +2133,7 @@
                 content = `<h2>${blog.title}</h2><div class="meta"><span><i class="fas fa-calendar-alt"></i> ${blog.date}</span><span><i class="fas fa-tag"></i> Blog</span></div><div class="modal-image"><img src="${blog.image}" alt="${blog.title}" loading="lazy"></div><div class="content-text">${blog.content}</div>`;
             } else if (type === 'career' && careerData[id]) {
                 const career = careerData[id];
-                content = `<h2>${career.title}</h2><div class="meta"><span><i class="fas fa-calendar-alt"></i> ${career.date}</span><span><i class="fas fa-tag"></i> Career Opportunity</span></div><div class="content-text">${career.content}<p><strong>Apply at <a href="careers.html" style="color:var(--logo-green);">Careers Page</a></strong></p></div>`;
+                content = `<h2>${career.title}</h2><div class="meta"><span><i class="fas fa-calendar-alt"></i> ${career.date}</span><span><i class="fas fa-tag"></i> Career Opportunity</span></div><div class="content-text">${career.content}<p><strong>Apply at <a href="#" style="color:var(--logo-green);">Careers Page</a></strong></p></div>`;
             } else if (type === 'video' && videoData[id]) {
                 const video = videoData[id];
                 content = `<h2>${video.title}</h2><div class="meta"><span><i class="fas fa-tag"></i> Video Gallery</span></div><div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${video.videoId}?autoplay=1" frameborder="0" allowfullscreen></iframe></div><div class="content-text"><p>${video.description}</p></div>`;
@@ -2211,7 +2207,7 @@
         if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
             console.log('Atirath Holdings CMS - Ready');
             // Load dynamic content if needed
-            (async function() {
+            (async function () {
                 // Example: Load team members from CMS
                 // const team = await AtirathCMS.loadTeam();
                 // console.log('Team loaded:', team);
