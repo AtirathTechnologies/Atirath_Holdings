@@ -470,101 +470,27 @@
             }
         }
 
-        /* Stats Section */
-        .stats-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, var(--logo-green-dark) 0%, var(--logo-green) 100%);
-            color: #fff;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 992px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Job Openings Section */
+        /* Job Openings Section - Single Card */
         .jobs-section {
             padding: 60px 0;
             background: #fff;
         }
 
-        .job-filters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            padding: 8px 25px;
-            border-radius: 50px;
-            background: #fff;
-            border: 1px solid rgba(46, 158, 31, 0.3);
-            color: var(--gray-text);
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--logo-green);
-            color: #fff;
-            border-color: var(--logo-green);
-        }
-
         .jobs-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: 1fr;
+            max-width: 750px;
+            margin: 0 auto;
         }
 
         .job-card {
             background: #fff;
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px;
             transition: all 0.3s ease;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(46, 158, 31, 0.1);
+            cursor: pointer;
         }
 
         .job-card:hover {
@@ -583,7 +509,7 @@
         }
 
         .job-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--dark);
         }
@@ -603,6 +529,7 @@
             margin-bottom: 15px;
             font-size: 0.85rem;
             color: var(--gray-text);
+            flex-wrap: wrap;
         }
 
         .job-meta i {
@@ -612,8 +539,8 @@
 
         .job-description {
             color: var(--gray-text);
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.7;
             margin-bottom: 20px;
         }
 
@@ -625,40 +552,184 @@
             gap: 15px;
         }
 
-        .job-salary {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--logo-green);
-        }
-
-        .apply-btn {
-            background: transparent;
-            color: var(--logo-green);
-            border: 2px solid var(--logo-green);
-            padding: 8px 20px;
+        .view-details-btn {
+            background: var(--logo-green);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
 
-        .apply-btn:hover {
-            background: var(--logo-green);
-            color: #fff;
+        .view-details-btn:hover {
+            background: var(--logo-green-dark);
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 992px) {
-            .jobs-grid {
-                grid-template-columns: 1fr;
+        /* JD Popup Modal */
+        .jd-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10001;
+            overflow-y: auto;
+        }
+
+        .jd-modal-content {
+            background: #fff;
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 24px;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Modal Styles - Common */
+        .close-jd-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .close-jd-modal:hover {
+            color: var(--logo-green);
+        }
+
+        .jd-modal-body {
+            padding: 40px;
+        }
+
+        .jd-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .jd-subtitle {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .jd-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            background: var(--off-white);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .jd-meta-item {
+            text-align: center;
+        }
+
+        .jd-meta-item .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--gray-text);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .jd-meta-item .value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .jd-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 25px 0 10px;
+        }
+
+        .jd-description {
+            color: var(--gray-text);
+            line-height: 1.8;
+        }
+
+        .jd-description ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .jd-description ul li {
+            margin-bottom: 8px;
+        }
+
+        .jd-apply-btn {
+            background: var(--logo-green);
+            color: #fff;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 25px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .jd-apply-btn:hover {
+            background: var(--logo-green-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .jd-modal-body {
+                padding: 25px;
+            }
+
+            .jd-title {
+                font-size: 1.4rem;
+            }
+
+            .jd-modal-content {
+                margin: 20px;
+            }
+
+            .jd-meta-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        /* Modal Styles - Common (for apply form) */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -678,18 +749,6 @@
             border-radius: 24px;
             position: relative;
             animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .close-modal {
@@ -823,7 +882,7 @@
             }
         }
 
-        /* CTA Section - Neat Design */
+        /* CTA Section */
         .cta-section {
             padding: 60px 0;
             background: linear-gradient(135deg, var(--logo-green-dark) 0%, var(--logo-green) 100%);
@@ -890,6 +949,8 @@
             align-items: center;
             gap: 10px;
             font-size: 1rem;
+            cursor: pointer;
+            border: none;
         }
 
         .cta-btn:hover {
@@ -1185,13 +1246,7 @@
                                 <label>Position Applying For <span class="text-danger">*</span></label>
                                 <select class="form-select" name="position" id="position" required>
                                     <option value="">Select Position</option>
-                                    <option value="Plant Manager">Plant Manager</option>
-                                    <option value="Chemical Engineer">Chemical Engineer</option>
-                                    <option value="Operations Manager">Operations Manager</option>
-                                    <option value="Agriculture Officer">Agriculture Officer</option>
-                                    <option value="Maintenance Engineer">Maintenance Engineer</option>
-                                    <option value="Business Development Executive">Business Development Executive
-                                    </option>
+                                    <option value="Asst Manager HR">Asst Manager HR</option>
                                 </select>
                             </div>
                         </div>
@@ -1305,6 +1360,87 @@
         </div>
     </div>
 
+    <!-- JD Popup Modal - Asst Manager HR -->
+    <div id="jdModal" class="jd-modal-overlay">
+        <div class="jd-modal-content">
+            <span class="close-jd-modal" onclick="closeJDModal()">&times;</span>
+            <div class="jd-modal-body">
+                <h2 class="jd-title">Asst Manager HR</h2>
+                <p class="jd-subtitle">Join Atirath's HR team to build and manage workforce across 50 CBG plant sites in Andhra Pradesh and Telangana</p>
+
+                <div class="jd-meta-grid">
+                    <div class="jd-meta-item">
+                        <div class="label">Location</div>
+                        <div class="value"><i class="fas fa-map-marker-alt" style="color:var(--logo-green);"></i> Hyderabad, Telangana</div>
+                    </div>
+                    <div class="jd-meta-item">
+                        <div class="label">Experience</div>
+                        <div class="value"><i class="fas fa-briefcase" style="color:var(--logo-green);"></i> 4-8 Years</div>
+                    </div>
+                    <div class="jd-meta-item">
+                        <div class="label">Employment Type</div>
+                        <div class="value"><i class="fas fa-clock" style="color:var(--logo-green);"></i> Full Time, Permanent</div>
+                    </div>
+                </div>
+
+                <div class="jd-description">
+                    <h3 class="jd-section-title">About Atirath Holdings</h3>
+                    <p>Atirath Holdings India Limited is a pioneering green energy company headquartered in Hyderabad, spearheading India's clean fuel infrastructure. We are establishing a massive, state-of-the-art 1,000 TPD decentralized Compressed Biogas (CBG) project featuring 50 decentralized 20-TPD plants strategically located across Andhra Pradesh and Telangana. As we enter a rapid scaling and construction phase, Atirath is committed to driving rural economic growth and sustainable energy transition at an unprecedented scale.</p>
+
+                    <p>We are looking for an agile, execution-focused Asst HR Manager to join our corporate headquarters in Hyderabad to design, build, and manage our workforce across our corporate office and multiple upcoming plant sites.</p>
+
+                    <h3 class="jd-section-title">Role Overview</h3>
+                    <ul>
+                        <li><strong>Role:</strong> Asst HR Manager (HR Generalist / Operations)</li>
+                        <li><strong>Experience:</strong> 4 to 8 years (Experience in manufacturing, infrastructure, renewable energy, or agro-industries is highly preferred)</li>
+                        <li><strong>Location:</strong> Corporate Office - Hyderabad, with occasional travel to plant sites across AP and Telangana</li>
+                        <li><strong>Employment Type:</strong> Full-Time, Permanent</li>
+                    </ul>
+
+                    <h3 class="jd-section-title">Key Responsibilities</h3>
+
+                    <h4 style="font-size:1rem; font-weight:600; color:var(--dark); margin-top:15px;">1. Greenfield Talent Acquisition & Onboarding</h4>
+                    <ul>
+                        <li>Lead end-to-end recruitment to fulfill corporate office needs and technical/blue-collar staffing requirements for 50 decentralized plant sites</li>
+                        <li>Source, interview, and hire diverse roles ranging from plant process engineers, supply chain/agribusiness personnel, to local site supervisors and labor</li>
+                        <li>Standardize a structured onboarding program that integrates rural and urban workforces into Atirath's corporate values</li>
+                    </ul>
+
+                    <h4 style="font-size:1rem; font-weight:600; color:var(--dark); margin-top:15px;">2. Statutory Compliance & Labor Relations</h4>
+                    <ul>
+                        <li>Ensure strict adherence to central and state labor laws, environmental health & safety (EHS) human resource regulations, and factory act guidelines across all plants in AP and Telangana</li>
+                        <li>Maintain all statutory records, contract labor registrations, and employment filings seamlessly</li>
+                        <li>Oversee conflict resolution and foster positive relations with local rural communities, farm partners, and plant workforces</li>
+                    </ul>
+
+                    <h4 style="font-size:1rem; font-weight:600; color:var(--dark); margin-top:15px;">3. HR Operations & Strategy Alignment</h4>
+                    <ul>
+                        <li>Partner with the leadership team to design and execute HR strategies that scale smoothly from 1 plant to 50 plants</li>
+                        <li>Implement and manage HRMS software platforms to track attendance, payroll inputs, and performance management metrics across geographically dispersed teams</li>
+                        <li>Formulate clear, fair, and scalable company-wide HR policies, code of conduct, and employee benefit programs</li>
+                    </ul>
+
+                    <h4 style="font-size:1rem; font-weight:600; color:var(--dark); margin-top:15px;">4. Training & Development</h4>
+                    <ul>
+                        <li>Collaborate with technical and plant heads to design and implement specialized training modules regarding CBG plant safety, biomass conditioning, and operational excellence</li>
+                    </ul>
+
+                    <h3 class="jd-section-title">Key Skills & Requirements</h3>
+                    <ul>
+                        <li><strong>Education:</strong> UG (Any Graduate), PG (MBA / PGDM in Human Resources or related field preferred)</li>
+                        <li><strong>Core Skills:</strong> Talent Acquisition, Statutory Compliance, Labor Laws (AP & Telangana frameworks), Employee Relations, HR Policy Formulation, HRMS/HR Software management, Contract Labor Management</li>
+                        <li><strong>Language Proficiency:</strong> Fluency in Telugu and English is highly critical to effectively manage local plant labor, government liaisons, and rural stakeholders</li>
+                        <li><strong>Attributes:</strong> Strong leadership, cross-functional communication, conflict resolution, and the ability to operate comfortably in a fast-paced, evolving startup environment</li>
+                    </ul>
+                </div>
+
+                <button class="jd-apply-btn" onclick="openModalFromJD('Asst Manager HR')">
+                    <i class="fas fa-paper-plane"></i> Apply Now
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Header -->
     <header class="ft1-main-header">
         <!-- Header Top -->
@@ -1314,13 +1450,13 @@
                     <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
                         <div class="d-flex gap-2 justify-content-start flex-wrap">
                             <div class="header_btn py-1 px-3 rounded">
-                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+919396699222">For Plant
+                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+ 919247582806">For Plant
                                     Inquiry</a>
                             </div>
                             <div class="header_btn py-1 px-3 rounded">
-                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+919396699222">For Partnership</a>
+                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+ 919247582806">For Partnership</a>
                             </div>
-                            <a href="inquiry.html" class="theme-btn" onclick="openModal('applyModal')">Get in Touch
+                            <a href="contact.html" class="theme-btn" onclick="openModal('applyModal')">Get in Touch
                                 <span class="icon fas fa-angle-double-right"></span></a>
                             <a href="#" class="theme-btn" onclick="openModal('applyModal')">Apply Now <span
                                     class="icon fas fa-angle-double-right"></span></a>
@@ -1362,7 +1498,6 @@
                                         <li><a class="dropdown-item" href="companyoverview.html">Company Overview</a>
                                         </li>
                                         <li><a class="dropdown-item" href="#">Leadership Team</a></li>
-                                        <li><a class="dropdown-item" href="#">Milestones</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -1371,10 +1506,6 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="cbgproductionplant.html">CBG Production
                                                 Plant</a></li>
-                                        <li><a class="dropdown-item" href="napiergrass.html">Napier Grass
-                                                Cultivation</a></li>
-                                        <li><a class="dropdown-item" href="#">Green Energy Portfolio</a>
-                                        </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -1383,13 +1514,10 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="blog.html">Blog</a></li>
                                         <li><a class="dropdown-item" href="#">Career News</a></li>
-                                        <li><a class="dropdown-item" href="#">Press Room</a></li>
                                         <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="inquiry.html"
-                                        onclick="openModal('applyModal')">Inquiry</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Join Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1449,6 +1577,35 @@
         </div>
     </section>
 
+    <!-- Job Openings Section - Single Card -->
+    <section id="jobs" class="jobs-section reveal">
+        <div class="auto-container">
+            <div class="section-header">
+                <h2>Current Openings</h2>
+                <div class="section-subtitle">Find your perfect role in our growing team</div>
+            </div>
+            <div class="jobs-grid">
+                <!-- Single Job Card - Asst Manager HR -->
+                <div class="job-card" onclick="openJDModal()">
+                    <div class="job-header">
+                        <h3 class="job-title">Asst Manager HR</h3>
+                        <span class="job-type">Full Time</span>
+                    </div>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</span>
+                        <span><i class="fas fa-briefcase"></i> 4-8 Years</span>
+                    </div>
+                    <div class="job-description">
+                        Lead end-to-end recruitment, statutory compliance, and HR operations for Atirath's 50 CBG plant sites across Andhra Pradesh and Telangana. Build and manage workforce across corporate office and decentralized plant locations.
+                    </div>
+                    <div class="job-footer">
+                        <span class="view-details-btn">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Company Culture Section -->
     <section class="culture-section reveal">
         <div class="auto-container">
@@ -1479,175 +1636,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section reveal">
-        <div class="auto-container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Team Members</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">6+</div>
-                    <div class="stat-label">States Covered</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Farmers Empowered</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Rural Jobs Created</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Job Openings Section -->
-    <section id="jobs" class="jobs-section reveal">
-        <div class="auto-container">
-            <div class="section-header">
-                <h2>Current Openings</h2>
-                <div class="section-subtitle">Find your perfect role in our growing team</div>
-            </div>
-            <div class="job-filters">
-                <button class="filter-btn active" data-filter="all">All Positions</button>
-                <button class="filter-btn" data-filter="engineering">Engineering</button>
-                <button class="filter-btn" data-filter="operations">Operations</button>
-                <button class="filter-btn" data-filter="management">Management</button>
-                <button class="filter-btn" data-filter="agriculture">Agriculture</button>
-            </div>
-            <div class="jobs-grid" id="jobsGrid">
-                <!-- Job 1 - Plant Manager -->
-                <div class="job-card" data-category="management">
-                    <div class="job-header">
-                        <h3 class="job-title">Plant Manager</h3>
-                        <span class="job-type">Full Time</span>
-                    </div>
-                    <div class="job-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</span>
-                        <span><i class="fas fa-briefcase"></i> 8+ Years</span>
-                    </div>
-                    <div class="job-description">
-                        Lead and manage overall plant operations, ensuring efficient CBG production, safety compliance,
-                        and team management.
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-salary">₹12-18 LPA</span>
-                        <a href="#" class="apply-btn" onclick="openModalWithJob('applyModal', 'Plant Manager')">Apply
-                            Now <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Job 2 - Chemical Engineer -->
-                <div class="job-card" data-category="engineering">
-                    <div class="job-header">
-                        <h3 class="job-title">Chemical Engineer</h3>
-                        <span class="job-type">Full Time</span>
-                    </div>
-                    <div class="job-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</span>
-                        <span><i class="fas fa-briefcase"></i> 3-5 Years</span>
-                    </div>
-                    <div class="job-description">
-                        Design and optimize biogas purification processes. Experience with PSA technology preferred.
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-salary">₹6-10 LPA</span>
-                        <a href="#" class="apply-btn"
-                            onclick="openModalWithJob('applyModal', 'Chemical Engineer')">Apply Now <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Job 3 - Operations Manager -->
-                <div class="job-card" data-category="operations">
-                    <div class="job-header">
-                        <h3 class="job-title">Operations Manager</h3>
-                        <span class="job-type">Full Time</span>
-                    </div>
-                    <div class="job-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Delhi NCR</span>
-                        <span><i class="fas fa-briefcase"></i> 5-7 Years</span>
-                    </div>
-                    <div class="job-description">
-                        Oversee daily plant operations, manage production schedules, and ensure quality standards.
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-salary">₹10-15 LPA</span>
-                        <a href="#" class="apply-btn"
-                            onclick="openModalWithJob('applyModal', 'Operations Manager')">Apply Now <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Job 4 - Agriculture Officer -->
-                <div class="job-card" data-category="agriculture">
-                    <div class="job-header">
-                        <h3 class="job-title">Agriculture Officer</h3>
-                        <span class="job-type">Full Time</span>
-                    </div>
-                    <div class="job-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Karimnagar, Telangana</span>
-                        <span><i class="fas fa-briefcase"></i> 2-4 Years</span>
-                    </div>
-                    <div class="job-description">
-                        Manage Napier Grass cultivation, coordinate with farmers, and ensure quality feedstock supply.
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-salary">₹4-6 LPA</span>
-                        <a href="#" class="apply-btn"
-                            onclick="openModalWithJob('applyModal', 'Agriculture Officer')">Apply Now <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Job 5 - Maintenance Engineer -->
-                <div class="job-card" data-category="engineering">
-                    <div class="job-header">
-                        <h3 class="job-title">Maintenance Engineer</h3>
-                        <span class="job-type">Full Time</span>
-                    </div>
-                    <div class="job-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</span>
-                        <span><i class="fas fa-briefcase"></i> 3-6 Years</span>
-                    </div>
-                    <div class="job-description">
-                        Handle plant maintenance, troubleshooting, and preventive maintenance schedules.
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-salary">₹5-8 LPA</span>
-                        <a href="#" class="apply-btn"
-                            onclick="openModalWithJob('applyModal', 'Maintenance Engineer')">Apply Now <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Job 6 - Business Development Executive -->
-                <div class="job-card" data-category="management">
-                    <div class="job-header">
-                        <h3 class="job-title">Business Development Executive</h3>
-                        <span class="job-type">Full Time</span>
-                    </div>
-                    <div class="job-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</span>
-                        <span><i class="fas fa-briefcase"></i> 2-4 Years</span>
-                    </div>
-                    <div class="job-description">
-                        Identify new business opportunities, build partnerships, and drive CBG sales.
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-salary">₹5-8 LPA + Incentives</span>
-                        <a href="#" class="apply-btn"
-                            onclick="openModalWithJob('applyModal', 'Business Development Executive')">Apply Now <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section - Neat Design (Opens Open Application Modal) -->
+    <!-- CTA Section -->
     <div class="cta-section">
         <div class="auto-container">
             <div class="cta-card">
@@ -1730,7 +1719,7 @@
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/919396699222?text=Hello%20Atirath%20Holdings%2C%20I'm%20interested%20in%20career%20opportunities."
+    <a href="https://wa.me/ 919247582806?text=Hello%20Atirath%20Holdings%2C%20I'm%20interested%20in%20career%20opportunities."
         class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -1757,20 +1746,29 @@
             }
         }
 
-        // Close modals on outside click
-        window.addEventListener('click', function (e) {
-            const applyModal = document.getElementById('applyModal');
-            const openModalEl = document.getElementById('openApplicationModal');
-            if (e.target === applyModal) {
-                closeModal('applyModal');
+        // JD Modal functions
+        function openJDModal() {
+            const jdModal = document.getElementById('jdModal');
+            if (jdModal) {
+                jdModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
             }
-            if (e.target === openModalEl) {
-                closeModal('openApplicationModal');
-            }
-        });
+        }
 
-        // Function to open modal with specific job preselected
-        function openModalWithJob(modalId, jobTitle) {
+        function closeJDModal() {
+            const jdModal = document.getElementById('jdModal');
+            if (jdModal) {
+                jdModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Function to open apply modal from JD popup
+        function openModalFromJD(jobTitle) {
+            // Close JD modal first
+            closeJDModal();
+
+            // Set the position in the apply form
             const positionSelect = document.getElementById('position');
             if (positionSelect) {
                 for (let i = 0; i < positionSelect.options.length; i++) {
@@ -1780,8 +1778,29 @@
                     }
                 }
             }
-            openModal(modalId);
+
+            // Open apply modal after a small delay
+            setTimeout(function() {
+                openModal('applyModal');
+            }, 300);
         }
+
+        // Close modals on outside click
+        window.addEventListener('click', function (e) {
+            const applyModal = document.getElementById('applyModal');
+            const openModalEl = document.getElementById('openApplicationModal');
+            const jdModal = document.getElementById('jdModal');
+
+            if (e.target === applyModal) {
+                closeModal('applyModal');
+            }
+            if (e.target === openModalEl) {
+                closeModal('openApplicationModal');
+            }
+            if (e.target === jdModal) {
+                closeJDModal();
+            }
+        });
 
         // Apply Now Form Submission
         const applicationForm = document.getElementById('applicationForm');
@@ -1930,25 +1949,6 @@
                 setTimeout(() => openErrorMsg.style.display = 'none', 4000);
             }
         }
-
-        // Job Filter Functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const jobCards = document.querySelectorAll('.job-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function () {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const filter = this.getAttribute('data-filter');
-                jobCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
 
         // Reveal animation
         const revealElements = document.querySelectorAll('.reveal');

@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description"
-        content="Atirath Holdings India Limited - Gallery. Explore our collection of CBG plant photos, ground breaking events, MoU signings, and video documentaries.">
+        content="Atirath Holdings India Limited - Gallery. Explore our journey through timeline of CBG plant photos, ground breaking events, MoU signings, and milestone celebrations.">
     <meta name="keywords"
-        content="gallery, image gallery, video gallery, CBG plant photos, green energy videos, Atirath Holdings gallery">
+        content="gallery, timeline gallery, CBG plant photos, green energy, Atirath Holdings gallery, journey">
     <meta name="author" content="Atirath Holdings India Limited">
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <link rel="canonical" href="https://atirathholdings.com/gallery">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
-    <title>Gallery | Atirath Holdings India Limited</title>
+    <title>Gallery | Atirath Holdings India Limited - Our Journey</title>
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website">
     <meta property="og:title" content="Gallery | Atirath Holdings India Limited">
     <meta property="og:description"
-        content="Explore our collection of CBG plant photos, ground breaking events, MoU signings, and video documentaries.">
+        content="Explore our journey through timeline of CBG plant photos, ground breaking events, MoU signings, and milestone celebrations.">
     <meta property="og:url" content="https://atirathholdings.com/gallery">
     <meta property="og:site_name" content="Atirath Holdings India Limited">
     <meta property="og:image" content="./Images/og-image.jpg">
@@ -29,7 +29,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gallery | Atirath Holdings India Limited">
-    <meta name="twitter:description" content="Explore our collection of CBG plant photos and video documentaries.">
+    <meta name="twitter:description" content="Explore our journey through timeline of CBG plant photos and milestone celebrations.">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -210,37 +210,7 @@
             .stat-number { font-size: 1.5rem; }
         }
 
-        .media-type-section { padding: 30px 0 20px; background: #fff; }
-        .media-type-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .media-type-btn {
-            padding: 12px 35px;
-            border-radius: 50px;
-            background: #fff;
-            border: 1px solid rgba(46, 158, 31, 0.3);
-            color: var(--gray-text);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-        .media-type-btn i { margin-right: 8px; }
-        .media-type-btn:hover,
-        .media-type-btn.active {
-            background: var(--logo-green);
-            color: #fff;
-            border-color: var(--logo-green);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(46, 158, 31, 0.2);
-        }
-
-        .category-section { padding: 20px 0; background: #fff; display: none; }
-        .category-section.active { display: block; }
+        .category-section { padding: 20px 0; background: #fff; display: block; }
         .category-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -269,89 +239,145 @@
         }
 
         .gallery-section { padding: 20px 0 60px; background: #fff; }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+
+        /* ===== TIMELINE VIEW ===== */
+        .timeline-view {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
-        .gallery-item {
+        .timeline-view .timeline-line {
             position: relative;
-            border-radius: 20px;
+            padding-left: 40px;
+        }
+        .timeline-view .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--logo-green) 0%, var(--logo-green-light) 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-dot-custom {
+            position: absolute;
+            left: -33px;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            background: var(--logo-green);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px var(--logo-green-light);
+            z-index: 2;
+        }
+
+        .timeline-item .timeline-image {
+            flex: 0 0 300px;
+            border-radius: 16px;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            aspect-ratio: 1 / 0.9;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.4s ease;
             background: #f5f5f5;
         }
-        .gallery-item img {
+        .timeline-item .timeline-image:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(46, 158, 31, 0.15);
+        }
+        .timeline-item .timeline-image img {
             width: 100%;
-            height: 100%;
+            height: 220px;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .gallery-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(46, 158, 31, 0.15); }
-        .gallery-item:hover img { transform: scale(1.08); }
-
-        /* Removed overlay - no titles */
-        .gallery-overlay {
-            display: none;
+            display: block;
         }
 
-        .video-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(46, 158, 31, 0.1);
-            cursor: pointer;
+        .timeline-item .timeline-content {
+            flex: 1;
+            min-width: 250px;
+            padding-top: 5px;
         }
-        .video-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(46, 158, 31, 0.15); border-color: var(--logo-green); }
-        .video-thumbnail { position: relative; overflow: hidden; aspect-ratio: 16 / 9; }
-        .video-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .video-card:hover .video-thumbnail img { transform: scale(1.05); }
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 55px;
-            height: 55px;
-            background: rgba(46, 158, 31, 0.9);
-            border-radius: 50%;
+        .timeline-item .timeline-content .tl-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--logo-green);
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            opacity: 0.9;
+            gap: 8px;
+            margin-bottom: 8px;
         }
-        .play-button i { color: #fff; font-size: 22px; margin-left: 4px; }
-        .video-card:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: var(--logo-green); opacity: 1; }
-        .video-duration {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 6px;
+        .timeline-item .timeline-content .tl-date i {
+            font-size: 0.9rem;
+        }
+        .timeline-item .timeline-content .tl-category {
+            display: inline-block;
+            background: var(--logo-green-pale);
+            color: var(--logo-green);
+            padding: 3px 14px;
+            border-radius: 20px;
             font-size: 0.7rem;
-            font-weight: 500;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
-        .video-info { padding: 18px; }
-        .video-title { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; line-height: 1.4; }
-        .video-category-badge { font-size: 0.7rem; color: var(--logo-green); font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
-        .video-description { font-size: 0.8rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 10px; }
-        .video-date { font-size: 0.65rem; color: var(--gray-text); display: flex; align-items: center; gap: 5px; }
-        .video-date i { color: var(--logo-green); }
+        .timeline-item .timeline-content .tl-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .timeline-item .timeline-content .tl-filename {
+            color: var(--gray-text);
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 5px;
+            word-break: break-all;
+        }
 
-        @media (max-width: 1200px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 992px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 576px) {
-            .gallery-grid { grid-template-columns: 1fr; }
-            .play-button { width: 45px; height: 45px; }
-            .play-button i { font-size: 18px; }
+        /* Timeline - alternate sides on larger screens */
+        @media (min-width: 768px) {
+            .timeline-item:nth-child(even) .timeline-image {
+                order: 2;
+            }
+            .timeline-item:nth-child(even) .timeline-content {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .timeline-view .timeline-line {
+                padding-left: 30px;
+            }
+            .timeline-item {
+                padding-left: 20px;
+                flex-direction: column;
+            }
+            .timeline-dot-custom {
+                left: -23px;
+                top: 8px;
+                width: 16px;
+                height: 16px;
+            }
+            .timeline-item .timeline-image {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            .timeline-item .timeline-image img {
+                height: 200px;
+            }
         }
 
         .lightbox {
@@ -415,48 +441,10 @@
         }
         .nav-btn:hover { background: var(--logo-green); transform: scale(1.1); }
 
-        .video-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-        }
-        .video-modal.active { display: flex; animation: fadeIn 0.3s ease; }
-        .video-modal-content { max-width: 90%; width: 1000px; position: relative; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; background: #000; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 16px; }
-        .close-video-modal {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            font-size: 30px;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .close-video-modal:hover { background: var(--logo-green); transform: rotate(90deg); }
-        .video-modal-title { color: #fff; text-align: center; margin-top: 20px; font-size: 1rem; }
-
         @media (max-width: 768px) {
-            .lightbox-nav,
-            .video-modal-content { width: 95%; }
+            .lightbox-nav { width: 95%; }
             .nav-btn { width: 40px; height: 40px; font-size: 18px; }
-            .close-lightbox,
-            .close-video-modal { top: -40px; width: 35px; height: 35px; font-size: 25px; }
+            .close-lightbox { top: -40px; width: 35px; height: 35px; font-size: 25px; }
         }
 
         .load-more-wrapper { text-align: center; margin-top: 50px; }
@@ -585,7 +573,6 @@
             .social-box { justify-content: center; }
             .list-link { text-align: center; }
             .section-header h2 { font-size: 1.6rem; }
-            .media-type-btn { padding: 8px 20px; font-size: 0.9rem; }
         }
         @media (max-width: 992px) {
             .header-social-icons { justify-content: center; margin-top: 10px; }
@@ -613,17 +600,6 @@
                 <div class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
                 <div class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
             </div>
-        </div>
-    </div>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal">
-        <div class="video-modal-content">
-            <span class="close-video-modal">&times;</span>
-            <div class="video-wrapper">
-                <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div id="videoModalTitle" class="video-modal-title"></div>
         </div>
     </div>
 
@@ -675,28 +651,23 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="companyoverview.html">Company Overview</a></li>
                                         <li><a class="dropdown-item" href="#">Leadership Team</a></li>
-                                        <li><a class="dropdown-item" href="#">Milestones</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Business Verticals</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="cbgproductionplant.html">CBG Production Plant</a></li>
-                                        <li><a class="dropdown-item" href="napiergrass.html">Napier Grass Cultivation</a></li>
-                                        <li><a class="dropdown-item" href="#">Green Energy Portfolio</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">News &amp; Insight</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                                        <li><a class="dropdown-item" href="#">Career News</a></li>
-                                        <li><a class="dropdown-item" href="#">Press Room</a></li>
+                                        <li><a class="dropdown-item" href="careers.html">Career News</a></li>
                                         <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="inquiry.html" onclick="scrollToContact()">Inquiry</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Join Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -710,21 +681,17 @@
         <div class="auto-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span></span> Visual Journey
+                    <span></span> Our Journey
                 </div>
-                <h1><span>Atirath</span> Holdings <span>Gallery</span></h1>
-                <p>Explore our journey through captivating images and videos - from CBG plant operations to ground breaking ceremonies and milestone celebrations.</p>
+                <h1><span>Atirath</span> Holdings <span>Timeline</span></h1>
+                <p>Explore our journey through a visual timeline - from CBG plant operations to ground breaking ceremonies, MoU signings, and milestone celebrations.</p>
                 <div class="gallery-stats">
                     <div class="stat-card">
-                        <div class="stat-number" id="totalPhotos">70+</div>
+                        <div class="stat-number" id="totalPhotos">130+</div>
                         <div class="stat-label">Photos</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number" id="totalVideos">24+</div>
-                        <div class="stat-label">Videos</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4+</div>
+                        <div class="stat-number">7+</div>
                         <div class="stat-label">Categories</div>
                     </div>
                 </div>
@@ -732,24 +699,10 @@
         </div>
     </section>
 
-    <!-- Media Type Tabs -->
-    <section class="media-type-section">
+    <!-- Category Tabs -->
+    <section class="category-section">
         <div class="auto-container">
-            <div class="media-type-tabs">
-                <button class="media-type-btn active" data-media="images">
-                    <i class="fas fa-images"></i> Images
-                </button>
-                <button class="media-type-btn" data-media="videos">
-                    <i class="fas fa-video"></i> Videos
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Images Section -->
-    <div id="imagesSection" class="category-section active">
-        <div class="auto-container">
-            <div class="category-tabs">
+            <div class="category-tabs" id="categoryTabs">
                 <button class="category-btn active" data-category="all">All Photos</button>
                 <button class="category-btn" data-category="cbg">CBG Plants</button>
                 <button class="category-btn" data-category="expo">Expo & Events</button>
@@ -760,26 +713,15 @@
                 <button class="category-btn" data-category="News Articles">News Articles</button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Videos Section -->
-    <div id="videosSection" class="category-section">
-        <div class="auto-container">
-            <div class="category-tabs">
-                <button class="category-btn active" data-category="all">All Videos</button>
-                <button class="category-btn" data-category="cbg">CBG Plants</button>
-                <button class="category-btn" data-category="groundbreaking">Ground Breaking</button>
-                <button class="category-btn" data-category="groundwork">Ground Work</button>
-                <button class="category-btn" data-category="mousigning">MoU Signing Event</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gallery Grid Container -->
+    <!-- Timeline Gallery -->
     <section class="gallery-section reveal">
         <div class="auto-container">
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Images will be populated here -->
+            <div class="timeline-view" id="timelineView">
+                <div class="timeline-line" id="timelineLine">
+                    <!-- Timeline items will be populated here -->
+                </div>
             </div>
             <div class="load-more-wrapper" id="loadMoreWrapper">
                 <button class="load-more-btn" id="loadMoreBtn">
@@ -873,215 +815,196 @@
 
     <script>
         // ============================================================
-        // 📸 IMAGE DATA - No titles needed, just file paths
+        // 📸 IMAGE DATA - All 130+ images with dates
         // ============================================================
 
         const imageData = [
             // ========== CBG PLANTS (9 images) ==========
-            { src: "Images/CBG Plants/1.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/2.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/3.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/4.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/5.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/6.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/7.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/8.jpg", category: "cbg" },
-            { src: "Images/CBG Plants/9.jpg", category: "cbg" },
+            { src: "Images/CBG Plants/1.jpg", category: "cbg", date: "2025-06-15", title: "CBG Plant Overview" },
+            { src: "Images/CBG Plants/2.jpg", category: "cbg", date: "2025-06-15", title: "CBG Production Facility" },
+            { src: "Images/CBG Plants/3.jpg", category: "cbg", date: "2025-06-15", title: "Biogas Purification Unit" },
+            { src: "Images/CBG Plants/4.jpg", category: "cbg", date: "2025-06-15", title: "Compression System" },
+            { src: "Images/CBG Plants/5.jpg", category: "cbg", date: "2025-06-15", title: "Storage & Dispensing" },
+            { src: "Images/CBG Plants/6.jpg", category: "cbg", date: "2025-06-15", title: "Control Room Operations" },
+            { src: "Images/CBG Plants/7.jpg", category: "cbg", date: "2025-06-15", title: "Quality Lab Testing" },
+            { src: "Images/CBG Plants/8.jpg", category: "cbg", date: "2025-06-15", title: "Plant Maintenance" },
+            { src: "Images/CBG Plants/9.jpg", category: "cbg", date: "2025-06-15", title: "Team at CBG Plant" },
 
-            // ==========  Andhra Pradesh MoU Signing Event (19 images) ==========
-            { src: "./Images/Andhra Pradesh MoU Signing Event/1.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/2.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/3.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/4.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/5.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/6.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/7.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/8.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/9.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/10.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/11.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/12.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/13.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/14.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/15.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/16.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/17.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/18.jpeg", category: "apmousigning" },
-            { src: "./Images/Andhra Pradesh MoU Signing Event/19.jpeg", category: "apmousigning" },
+            // ========== Andhra Pradesh MoU Signing Event (19 images) ==========
+            { src: "Images/Andhra Pradesh MoU Signing Event/1.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU Signing - Ceremony" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/2.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Dignitaries" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/3.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Document Exchange" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/4.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Group Photo" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/5.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Leadership" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/6.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Handshake" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/7.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Delegates" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/8.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Ceremony Hall" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/9.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Signing Table" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/10.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Address" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/11.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Group Photo 2" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/12.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Official" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/13.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Discussions" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/14.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Press" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/15.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Delegates Photo" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/16.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Team Photo" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/17.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Celebrations" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/18.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Media Moment" },
+            { src: "Images/Andhra Pradesh MoU Signing Event/19.jpeg", category: "apmousigning", date: "2025-11-10", title: "AP MoU - Closing" },
 
+            // ========== TELANGANA MOU SIGNING (43 images) ==========
+            { src: "Images/Telangana MoU Signing/1.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Main Ceremony" },
+            { src: "Images/Telangana MoU Signing/2.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Dignitaries" },
+            { src: "Images/Telangana MoU Signing/3.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Signing Moment" },
+            { src: "Images/Telangana MoU Signing/4.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Handshake" },
+            { src: "Images/Telangana MoU Signing/5.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Group" },
+            { src: "Images/Telangana MoU Signing/6.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Stage" },
+            { src: "Images/Telangana MoU Signing/7.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Address" },
+            { src: "Images/Telangana MoU Signing/8.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Delegates" },
+            { src: "Images/Telangana MoU Signing/9.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Exchange" },
+            { src: "Images/Telangana MoU Signing/10.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Celebration" },
+            { src: "Images/Telangana MoU Signing/11.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Team" },
+            { src: "Images/Telangana MoU Signing/12.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Officials" },
+            { src: "Images/Telangana MoU Signing/13.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Press Conference" },
+            { src: "Images/Telangana MoU Signing/14.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Group Photo" },
+            { src: "Images/Telangana MoU Signing/15.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Leadership" },
+            { src: "Images/Telangana MoU Signing/16.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Document" },
+            { src: "Images/Telangana MoU Signing/17.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Stage View" },
+            { src: "Images/Telangana MoU Signing/18.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Attendees" },
+            { src: "Images/Telangana MoU Signing/19.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Media" },
+            { src: "Images/Telangana MoU Signing/20.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Handshake 2" },
+            { src: "Images/Telangana MoU Signing/21.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Delegates 2" },
+            { src: "Images/Telangana MoU Signing/22.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Ceremony" },
+            { src: "Images/Telangana MoU Signing/23.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Group 2" },
+            { src: "Images/Telangana MoU Signing/24.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Officials 2" },
+            { src: "Images/Telangana MoU Signing/25.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Press 2" },
+            { src: "Images/Telangana MoU Signing/26.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Stage 2" },
+            { src: "Images/Telangana MoU Signing/27.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Exchange 2" },
+            { src: "Images/Telangana MoU Signing/28.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Handshake 3" },
+            { src: "Images/Telangana MoU Signing/29.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Team 2" },
+            { src: "Images/Telangana MoU Signing/30.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Delegates 3" },
+            { src: "Images/Telangana MoU Signing/31.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Celebration 2" },
+            { src: "Images/Telangana MoU Signing/32.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Officials 3" },
+            { src: "Images/Telangana MoU Signing/33.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Group 3" },
+            { src: "Images/Telangana MoU Signing/34.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Press 3" },
+            { src: "Images/Telangana MoU Signing/35.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Stage 3" },
+            { src: "Images/Telangana MoU Signing/36.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Exchange 3" },
+            { src: "Images/Telangana MoU Signing/37.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Handshake 4" },
+            { src: "Images/Telangana MoU Signing/38.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Team 3" },
+            { src: "Images/Telangana MoU Signing/39.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Delegates 4" },
+            { src: "Images/Telangana MoU Signing/40.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Celebration 3" },
+            { src: "Images/Telangana MoU Signing/41.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Officials 4" },
+            { src: "Images/Telangana MoU Signing/42.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Group 4" },
+            { src: "Images/Telangana MoU Signing/43.jpeg", category: "tgmousigning", date: "2025-09-15", title: "TG MoU - Final" },
 
-            // ========== TELANGANA MOU SIGNING (16 images) ==========
-            { src: "./Images/Telangana MoU Signing/1.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/2.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/3.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/4.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/5.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/6.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/7.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/8.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/9.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/10.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/11.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/12.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/13.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/14.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/15.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/16.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/17.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/18.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/19.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/20.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/21.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/22.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/23.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/24.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/25.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/26.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/27.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/28.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/29.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/30.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/31.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/32.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/33.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/34.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/35.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/36.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/37.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/38.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/39.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/40.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/41.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/42.jpeg", category: "tgmousigning" },
-            { src: "./Images/Telangana MoU Signing/43.jpeg", category: "tgmousigning" },
+            // ========== EXPO & EVENTS (21 images) ==========
+            { src: "Images/Expo & Events/1.jpeg", category: "expo", date: "2025-07-20", title: "Expo 2025 - Booth" },
+            { src: "Images/Expo & Events/2.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Visitors" },
+            { src: "Images/Expo & Events/3.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Presentation" },
+            { src: "Images/Expo & Events/4.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Team" },
+            { src: "Images/Expo & Events/5.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Delegates" },
+            { src: "Images/Expo & Events/6.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Booth Display" },
+            { src: "Images/Expo & Events/7.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Interaction" },
+            { src: "Images/Expo & Events/8.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Panel" },
+            { src: "Images/Expo & Events/9.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Visitors 2" },
+            { src: "Images/Expo & Events/10.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Stage" },
+            { src: "Images/Expo & Events/11.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Networking" },
+            { src: "Images/Expo & Events/12.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Booth 2" },
+            { src: "Images/Expo & Events/13.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Team 2" },
+            { src: "Images/Expo & Events/14.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Delegates 2" },
+            { src: "Images/Expo & Events/15.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Presentation 2" },
+            { src: "Images/Expo & Events/16.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Visitors 3" },
+            { src: "Images/Expo & Events/17.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Panel 2" },
+            { src: "Images/Expo & Events/18.jpg", category: "expo", date: "2025-07-20", title: "Expo - Booth 3" },
+            { src: "Images/Expo & Events/19.jpg", category: "expo", date: "2025-07-20", title: "Expo - Team 3" },
+            { src: "Images/Expo & Events/20.jpg", category: "expo", date: "2025-07-20", title: "Expo - Interaction 2" },
+            { src: "Images/Expo & Events/21.jpeg", category: "expo", date: "2025-07-20", title: "Expo - Closing" },
 
-
-            // ========== EXPO & EVENTS (19 images) ==========
-            { src: "./Images/Expo & Events/1.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/2.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/3.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/4.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/5.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/6.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/7.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/8.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/9.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/10.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/11.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/12.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/13.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/14.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/15.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/16.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/17.jpeg", category: "expo" },
-            { src: "./Images/Expo & Events/18.jpg", category: "expo" },
-            { src: "./Images/Expo & Events/19.jpg", category: "expo" },
-            { src: "./Images/Expo & Events/20.jpg", category: "expo" },
-            { src: "./Images/Expo & Events/21.jpeg", category: "expo" },
-
-            // ========== GROUND BREAKING (21 images - 1 to 21) ==========
-            { src: "./Images/Ground Breaking/1.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/2.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/3.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/4.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/5.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/6.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/7.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/8.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/9.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/10.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/11.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/12.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/13.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/14.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/15.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/16.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/17.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/18.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/19.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/20.jpeg", category: "groundbreaking" },
-            { src: "./Images/Ground Breaking/21.jpeg", category: "groundbreaking" },
+            // ========== GROUND BREAKING (21 images) ==========
+            { src: "Images/Ground Breaking/1.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Main Ceremony" },
+            { src: "Images/Ground Breaking/2.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Dignitaries" },
+            { src: "Images/Ground Breaking/3.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Foundation" },
+            { src: "Images/Ground Breaking/4.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Soil" },
+            { src: "Images/Ground Breaking/5.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Team" },
+            { src: "Images/Ground Breaking/6.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Stage" },
+            { src: "Images/Ground Breaking/7.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Address" },
+            { src: "Images/Ground Breaking/8.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Group" },
+            { src: "Images/Ground Breaking/9.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Foundation 2" },
+            { src: "Images/Ground Breaking/10.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Dignitaries 2" },
+            { src: "Images/Ground Breaking/11.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Ceremony" },
+            { src: "Images/Ground Breaking/12.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Team 2" },
+            { src: "Images/Ground Breaking/13.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Soil 2" },
+            { src: "Images/Ground Breaking/14.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Stage 2" },
+            { src: "Images/Ground Breaking/15.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Address 2" },
+            { src: "Images/Ground Breaking/16.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Group 2" },
+            { src: "Images/Ground Breaking/17.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Foundation 3" },
+            { src: "Images/Ground Breaking/18.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Dignitaries 3" },
+            { src: "Images/Ground Breaking/19.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Ceremony 2" },
+            { src: "Images/Ground Breaking/20.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Team 3" },
+            { src: "Images/Ground Breaking/21.jpeg", category: "groundbreaking", date: "2026-01-15", title: "Ground Breaking - Closing" },
 
             // ========== GROUND WORK (12 images) ==========
-            { src: "Images/Ground Work/1.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/2.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/3.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/4.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/5.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/6.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/7.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/8.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/9.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/10.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/11.jpeg", category: "groundwork" },
-            { src: "Images/Ground Work/13.jpeg", category: "groundwork" },
+            { src: "Images/Ground Work/1.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Excavation" },
+            { src: "Images/Ground Work/2.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Leveling" },
+            { src: "Images/Ground Work/3.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Foundation" },
+            { src: "Images/Ground Work/4.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Structures" },
+            { src: "Images/Ground Work/5.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Equipment" },
+            { src: "Images/Ground Work/6.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Team" },
+            { src: "Images/Ground Work/7.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Site" },
+            { src: "Images/Ground Work/8.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Construction" },
+            { src: "Images/Ground Work/9.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Materials" },
+            { src: "Images/Ground Work/10.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Progress" },
+            { src: "Images/Ground Work/11.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Team 2" },
+            { src: "Images/Ground Work/13.jpeg", category: "groundwork", date: "2026-02-10", title: "Ground Work - Final" },
 
             // ========== NEWS ARTICLES (5 images) ==========
-            { src: "./Images/News Articles/article 1.jpeg", category: "News Articles" },
-            { src: "./Images/News Articles/article 2.jpeg", category: "News Articles" },
-            { src: "./Images/News Articles/article 3.jpeg", category: "News Articles" },
-            { src: "./Images/News Articles/article 4.jpeg", category: "News Articles" },
-            { src: "./Images/News Articles/MOU news.jpeg", category: "News Articles" },
-
-            
+            { src: "Images/News Articles/article 1.jpeg", category: "News Articles", date: "2026-01-20", title: "News - Article 1" },
+            { src: "Images/News Articles/article 2.jpeg", category: "News Articles", date: "2026-01-20", title: "News - Article 2" },
+            { src: "Images/News Articles/article 3.jpeg", category: "News Articles", date: "2026-01-20", title: "News - Article 3" },
+            { src: "Images/News Articles/article 4.jpeg", category: "News Articles", date: "2026-01-20", title: "News - Article 4" },
+            { src: "Images/News Articles/MOU news.jpeg", category: "News Articles", date: "2026-01-20", title: "News - MoU Coverage" },
         ];
 
         // ============================================================
-        // 🎬 VIDEO DATA - UNCHANGED
+        // CATEGORY NAME MAPPER
         // ============================================================
 
-        const videoData = {
-            1: { videoId: "tVje_JRZzJo", title: "Atirath Holdings Corporate Video On CBG", category: "cbg", duration: "3:45", date: "January 15, 2026", description: "Complete overview of our state-of-the-art CBG manufacturing facility in Hyderabad." },
-            2: { videoId: "A0jiZO5x0do", title: "Understanding PSA Purification Technology", category: "cbg", duration: "4:20", date: "February 10, 2026", description: "Deep dive into our Pressure Swing Adsorption technology for high-purity CBG." },
-            3: { videoId: "JSZLK17WWCU", title: "CBG Business Plan 2026 | Compressed Bio Gas Plant Cost, Profit, Subsidy", category: "cbg", duration: "3:15", date: "March 5, 2026", description: "Virtual tour of our 150 TPD CBG plant in Mumbai, Maharashtra." },
-            4: { videoId: "bLeyrVjFJXs", title: "Advanced Control Room Operations - Meet Anthony Hayes: Control Room Operator at Green Station", category: "cbg", duration: "2:50", date: "March 20, 2026", description: "See how our IoT-enabled control room monitors plant operations 24/7." },
-            5: { videoId: "dQw4w9WgXcQ", title: "Ground Breaking - Hyderabad Facility", category: "groundbreaking", duration: "5:30", date: "April 10, 2025", description: "Celebrating the foundation stone laying ceremony of our Hyderabad plant." },
-            6: { videoId: "dQw4w9WgXcQ", title: "Ground Breaking - Mumbai Facility", category: "groundbreaking", duration: "4:45", date: "June 15, 2025", description: "Inauguration ceremony of our Mumbai CBG plant with dignitaries." },
-            7: { videoId: "dQw4w9WgXcQ", title: "Ground Breaking - Delhi NCR Facility", category: "groundbreaking", duration: "6:00", date: "August 20, 2025", description: "Launch of our upcoming 200 TPD plant in Greater Noida." },
-            8: { videoId: "dQw4w9WgXcQ", title: "Ground Breaking - Pune Facility", category: "groundbreaking", duration: "3:55", date: "October 5, 2025", description: "Foundation ceremony of our 150 TPD plant in Pune." },
-            9: { videoId: "MyKrO5jlg1Y", title: "Site Preparation & Leveling - Site Selection, Adavantages and Disadvantages of Biogas Plant || RES", category: "groundwork", duration: "4:10", date: "July 10, 2025", description: "Initial site preparation activities for our Hyderabad plant." },
-            10: { videoId: "dQw4w9WgXcQ", title: "Foundation & Structural Work", category: "groundwork", duration: "5:20", date: "September 15, 2025", description: "Foundation laying and structural framework installation." },
-            11: { videoId: "fq6ApIPBRHI", title: "Equipment Installation Process", category: "groundwork", duration: "6:15", date: "November 20, 2025", description: "Installation of digesters and purification equipment." },
-            12: { videoId: "dQw4w9WgXcQ", title: "Pipeline & Piping Network", category: "groundwork", duration: "4:30", date: "December 10, 2025", description: "Installation of pipeline and piping network across the plant." },
-            13: { videoId: "dQw4w9WgXcQ", title: "MoU Signing with UP Government", category: "mousigning", duration: "7:30", date: "March 20, 2025", description: "Historic MoU signing ceremony for 100 TPD plant in Lucknow." },
-            14: { videoId: "dQw4w9WgXcQ", title: "Partnership with Oil Marketing Companies", category: "mousigning", duration: "5:15", date: "May 10, 2025", description: "Strategic MoU signing for CBG offtake agreement with OMCs." },
-            15: { videoId: "dQw4w9WgXcQ", title: "International Technology Partnership", category: "mousigning", duration: "6:45", date: "July 25, 2025", description: "MoU signing with European tech firm for advanced biogas purification." },
-            16: { videoId: "dQw4w9WgXcQ", title: "Farmer Partnership Agreement", category: "mousigning", duration: "4:55", date: "September 5, 2025", description: "Agreement signing with 500+ farmers for Napier Grass cultivation." }
-        };
-
-        const additionalVideos = [
-            { videoId: "dQw4w9WgXcQ", title: "CBG Plant Quality Control Process", category: "cbg", duration: "3:30", date: "January 5, 2026", description: "Quality control and testing procedures at our CBG plants." },
-            { videoId: "dQw4w9WgXcQ", title: "Biogas Purification Technology", category: "cbg", duration: "4:15", date: "February 1, 2026", description: "In-depth look at our biogas purification technology." },
-            { videoId: "dQw4w9WgXcQ", title: "Ground Breaking - Bangalore Facility", category: "groundbreaking", duration: "5:00", date: "November 10, 2025", description: "Foundation ceremony of our new plant in Bangalore." },
-            { videoId: "dQw4w9WgXcQ", title: "Safety Protocols Implementation", category: "groundwork", duration: "3:45", date: "December 5, 2025", description: "Safety measures and protocols at construction sites." },
-            { videoId: "dQw4w9WgXcQ", title: "MoU with Gujarat Government", category: "mousigning", duration: "6:30", date: "August 15, 2025", description: "MoU signing for CBG plant in Ahmedabad." },
-            { videoId: "dQw4w9WgXcQ", title: "MoU with Technology Partner", category: "mousigning", duration: "5:20", date: "October 10, 2025", description: "Strategic partnership for technology transfer." },
-            { videoId: "dQw4w9WgXcQ", title: "Ground Breaking - Chennai Facility", category: "groundbreaking", duration: "4:40", date: "December 15, 2025", description: "New plant launch in Chennai." },
-            { videoId: "dQw4w9WgXcQ", title: "Electrical Systems Installation", category: "groundwork", duration: "4:25", date: "January 20, 2026", description: "Electrical infrastructure installation process." }
-        ];
+        function getCategoryDisplayName(category) {
+            const map = {
+                'cbg': 'CBG Plants',
+                'expo': 'Expo & Events',
+                'groundbreaking': 'Ground Breaking',
+                'groundwork': 'Ground Work',
+                'tgmousigning': 'TG MoU Signing',
+                'apmousigning': 'AP MoU Signing',
+                'News Articles': 'News Articles'
+            };
+            return map[category] || category;
+        }
 
         // ============================================================
-        // DON'T EDIT BELOW THIS LINE
+        // FORMAT DATE FUNCTION
         // ============================================================
 
-        let allVideos = Object.values(videoData);
-        let currentMediaType = 'images';
-        let currentImageCategory = 'all';
-        let currentVideoCategory = 'all';
-        let currentImageCount = 30;
-        let currentVideoCount = 16;
+        function formatDate(dateStr) {
+            const d = new Date(dateStr);
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+        }
+
+        // ============================================================
+        // MAIN VARIABLES
+        // ============================================================
+
         let allImages = [...imageData];
+        let currentCategory = 'all';
+        let currentCount = 30;
 
-        document.getElementById('totalPhotos').innerText = allImages.length + '+';
-        document.getElementById('totalVideos').innerText = allVideos.length + '+';
-
-        const galleryGrid = document.getElementById('galleryGrid');
+        const timelineLine = document.getElementById('timelineLine');
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         const loadMoreWrapper = document.getElementById('loadMoreWrapper');
-        const imagesSection = document.getElementById('imagesSection');
-        const videosSection = document.getElementById('videosSection');
-        const mediaTypeBtns = document.querySelectorAll('.media-type-btn');
+        const categoryBtns = document.querySelectorAll('.category-btn');
 
+        // Lightbox
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
@@ -1089,21 +1012,18 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
 
-        const videoModal = document.getElementById('videoModal');
-        const videoIframe = document.getElementById('videoIframe');
-        const videoModalTitle = document.getElementById('videoModalTitle');
-        const closeVideoModal = document.querySelector('.close-video-modal');
-
-        let currentImageIndex = 0;
         let currentFilteredImages = [];
-        let currentFilteredVideos = [];
+        let currentImageIndex = 0;
+
+        // ============================================================
+        // LIGHTBOX FUNCTIONS
+        // ============================================================
 
         function openLightbox(index) {
             currentImageIndex = index;
             const image = currentFilteredImages[currentImageIndex];
             if (image) {
                 lightboxImg.src = image.src;
-                // Get filename from path for caption
                 const filename = image.src.split('/').pop();
                 lightboxCaption.textContent = filename;
                 lightbox.classList.add('active');
@@ -1136,161 +1056,108 @@
             }
         }
 
-        function openVideo(videoObj) {
-            if (videoObj) {
-                videoIframe.src = `https://www.youtube.com/embed/${videoObj.videoId}?autoplay=1`;
-                videoModalTitle.textContent = videoObj.title;
-                videoModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
+        // ============================================================
+        // RENDER TIMELINE
+        // ============================================================
 
-        function closeVideoModalFunc() {
-            videoIframe.src = '';
-            videoModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function renderImages() {
+        function renderTimeline() {
             let filteredImages = allImages;
-            if (currentImageCategory !== 'all') {
-                filteredImages = allImages.filter(img => img.category === currentImageCategory);
+            if (currentCategory !== 'all') {
+                filteredImages = allImages.filter(img => img.category === currentCategory);
             }
+            // Sort by date (newest first)
+            filteredImages.sort((a, b) => new Date(b.date) - new Date(a.date));
             currentFilteredImages = filteredImages;
 
-            galleryGrid.innerHTML = '';
-            const imagesToShow = filteredImages.slice(0, currentImageCount);
+            timelineLine.innerHTML = '';
+            const imagesToShow = filteredImages.slice(0, currentCount);
 
             imagesToShow.forEach((image, idx) => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                galleryItem.setAttribute('data-category', image.category);
-                galleryItem.setAttribute('data-index', idx);
-                galleryItem.innerHTML = `
-                    <img src="${image.src}" alt="Gallery Image" onerror="this.src='https://placehold.co/600x500/2E9E1F/white?text=Image'">
-                `;
-                galleryItem.addEventListener('click', () => openLightbox(idx));
-                galleryGrid.appendChild(galleryItem);
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                item.setAttribute('data-category', image.category);
+
+                const dot = document.createElement('div');
+                dot.className = 'timeline-dot-custom';
+
+                const imageDiv = document.createElement('div');
+                imageDiv.className = 'timeline-image';
+                imageDiv.innerHTML = `<img src="${image.src}" alt="${image.title || 'Gallery Image'}" onerror="this.src='https://placehold.co/600x400/2E9E1F/white?text=Image'">`;
+                imageDiv.addEventListener('click', () => openLightbox(idx));
+
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'timeline-content';
+
+                const dateSpan = document.createElement('div');
+                dateSpan.className = 'tl-date';
+                dateSpan.innerHTML = `<i class="fas fa-calendar-alt"></i> ${formatDate(image.date)}`;
+
+                const catSpan = document.createElement('span');
+                catSpan.className = 'tl-category';
+                catSpan.textContent = getCategoryDisplayName(image.category);
+
+                const titleH3 = document.createElement('h3');
+                titleH3.className = 'tl-title';
+                titleH3.textContent = image.title || 'Untitled';
+
+                const filenameP = document.createElement('p');
+                filenameP.className = 'tl-filename';
+                const filename = image.src.split('/').pop();
+                filenameP.textContent = '📎 ' + filename;
+
+                contentDiv.appendChild(dateSpan);
+                contentDiv.appendChild(catSpan);
+                contentDiv.appendChild(titleH3);
+                contentDiv.appendChild(filenameP);
+
+                item.appendChild(dot);
+                item.appendChild(imageDiv);
+                item.appendChild(contentDiv);
+
+                timelineLine.appendChild(item);
             });
 
-            if (currentImageCount >= filteredImages.length) {
+            // Update total photos count
+            document.getElementById('totalPhotos').innerText = filteredImages.length + '+';
+
+            if (currentCount >= filteredImages.length) {
                 loadMoreWrapper.style.display = 'none';
             } else {
                 loadMoreWrapper.style.display = 'block';
             }
         }
 
-        function renderVideos() {
-            let filteredVideos = allVideos;
-            if (currentVideoCategory !== 'all') {
-                filteredVideos = allVideos.filter(video => video.category === currentVideoCategory);
-            }
-            currentFilteredVideos = filteredVideos;
-
-            galleryGrid.innerHTML = '';
-            const videosToShow = filteredVideos.slice(0, currentVideoCount);
-
-            videosToShow.forEach((video, idx) => {
-                const videoCard = document.createElement('div');
-                videoCard.className = 'video-card';
-                videoCard.setAttribute('data-category', video.category);
-                videoCard.innerHTML = `
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg" alt="${video.title}" onerror="this.src='https://placehold.co/600x340/2E9E1F/white?text=${encodeURIComponent(video.title)}'">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">${video.duration}</div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">${video.title}</h3>
-                        <div class="video-category-badge"><i class="fas fa-circle"></i> ${video.category === 'cbg' ? 'CBG Plants' : video.category === 'groundbreaking' ? 'Ground Breaking' : video.category === 'groundwork' ? 'Ground Work' : 'MoU Signing Event'}</div>
-                        <p class="video-description">${video.description}</p>
-                        <div class="video-date"><i class="far fa-calendar-alt"></i> ${video.date}</div>
-                    </div>
-                `;
-                videoCard.addEventListener('click', () => openVideo(video));
-                galleryGrid.appendChild(videoCard);
-            });
-
-            if (currentVideoCount >= filteredVideos.length) {
-                loadMoreWrapper.style.display = 'none';
-            } else {
-                loadMoreWrapper.style.display = 'block';
-            }
-        }
+        // ============================================================
+        // LOAD MORE
+        // ============================================================
 
         function loadMore() {
-            if (currentMediaType === 'images') {
-                let filteredImages = allImages;
-                if (currentImageCategory !== 'all') {
-                    filteredImages = allImages.filter(img => img.category === currentImageCategory);
-                }
-                currentImageCount = Math.min(currentImageCount + 20, filteredImages.length);
-                renderImages();
-            } else {
-                let filteredVideos = allVideos;
-                if (currentVideoCategory !== 'all') {
-                    filteredVideos = allVideos.filter(video => video.category === currentVideoCategory);
-                }
-
-                if (currentVideoCount === 16 && filteredVideos.length === 16) {
-                    additionalVideos.forEach(video => {
-                        const newVideo = { ...video };
-                        allVideos.push(newVideo);
-                    });
-                }
-
-                filteredVideos = allVideos;
-                if (currentVideoCategory !== 'all') {
-                    filteredVideos = allVideos.filter(video => video.category === currentVideoCategory);
-                }
-                currentVideoCount = Math.min(currentVideoCount + 8, filteredVideos.length);
-                renderVideos();
+            let filteredImages = allImages;
+            if (currentCategory !== 'all') {
+                filteredImages = allImages.filter(img => img.category === currentCategory);
             }
+            filteredImages.sort((a, b) => new Date(b.date) - new Date(a.date));
+            currentCount = Math.min(currentCount + 20, filteredImages.length);
+            renderTimeline();
         }
 
-        function switchMediaType(type) {
-            currentMediaType = type;
-            if (type === 'images') {
-                imagesSection.classList.add('active');
-                videosSection.classList.remove('active');
-                renderImages();
-            } else {
-                imagesSection.classList.remove('active');
-                videosSection.classList.add('active');
-                renderVideos();
-            }
-        }
+        // ============================================================
+        // CATEGORY FILTERS
+        // ============================================================
 
-        mediaTypeBtns.forEach(btn => {
+        categoryBtns.forEach(btn => {
             btn.addEventListener('click', function() {
-                mediaTypeBtns.forEach(b => b.classList.remove('active'));
+                categoryBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                const mediaType = this.getAttribute('data-media');
-                switchMediaType(mediaType);
+                currentCategory = this.getAttribute('data-category');
+                currentCount = 30;
+                renderTimeline();
             });
         });
 
-        document.querySelectorAll('#imagesSection .category-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('#imagesSection .category-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentImageCategory = this.getAttribute('data-category');
-                currentImageCount = 30;
-                renderImages();
-            });
-        });
-
-        document.querySelectorAll('#videosSection .category-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('#videosSection .category-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentVideoCategory = this.getAttribute('data-category');
-                currentVideoCount = 16;
-                renderVideos();
-            });
-        });
+        // ============================================================
+        // EVENT LISTENERS
+        // ============================================================
 
         loadMoreBtn.addEventListener('click', loadMore);
 
@@ -1302,23 +1169,23 @@
             if (e.target === lightbox) closeLightboxFunc();
         });
 
-        if (closeVideoModal) closeVideoModal.addEventListener('click', closeVideoModalFunc);
-        videoModal.addEventListener('click', function(e) {
-            if (e.target === videoModal) closeVideoModalFunc();
-        });
-
         document.addEventListener('keydown', function(e) {
             if (lightbox.classList.contains('active')) {
                 if (e.key === 'Escape') closeLightboxFunc();
                 else if (e.key === 'ArrowRight') showNextImage();
                 else if (e.key === 'ArrowLeft') showPrevImage();
             }
-            if (videoModal.classList.contains('active') && e.key === 'Escape') {
-                closeVideoModalFunc();
-            }
         });
 
-        renderImages();
+        // ============================================================
+        // INITIAL RENDER
+        // ============================================================
+
+        renderTimeline();
+
+        // ============================================================
+        // UTILITY FUNCTIONS
+        // ============================================================
 
         function scrollToContact() {
             const contactSection = document.getElementById('contact');

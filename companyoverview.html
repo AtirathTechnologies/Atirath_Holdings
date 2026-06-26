@@ -71,7 +71,8 @@
         .cta-section p,
         .stat-label,
         .company-desc,
-        .value-description {
+        .value-description,
+        .opportunity-desc {
             text-align: left;
         }
 
@@ -325,6 +326,19 @@
             margin-bottom: 20px;
         }
 
+        .company-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .company-image img:hover {
+            transform: scale(1.03);
+        }
+
+
         .company-desc h2 span {
             color: var(--logo-green);
         }
@@ -431,7 +445,7 @@
         .vision-card,
         .mission-card {
             background: #fff;
-            padding: 40px 30px;
+            padding: 10px 30px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             height: 100%;
@@ -448,16 +462,14 @@
         .card-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--logo-green-pale) 0%, var(--logo-green-soft) 100%);
-            border-radius: 50%;
+
+
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
         }
 
         .card-icon i {
-            font-size: 40px;
+            font-size: 25px;
             color: var(--logo-green);
         }
 
@@ -468,6 +480,48 @@
             color: var(--logo-green-dark);
             margin-bottom: 20px;
         }
+
+        .card-header-custom {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .card-header-custom .card-icon {
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .card-header-custom .card-icon i {
+            font-size: 32px;
+            color: var(--logo-green);
+        }
+
+        .card-header-custom h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--logo-green-dark);
+        }
+
+        @media (max-width: 768px) {
+            .card-header-custom {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .card-header-custom h3 {
+                font-size: 1.5rem;
+            }
+
+
+        }
+
 
         @media (max-width: 992px) {
 
@@ -555,6 +609,108 @@
             .value-description {
                 font-size: 0.9rem;
                 text-align: center;
+            }
+        }
+
+        /* Opportunity Section */
+        .opportunity-section {
+            padding: 60px 0;
+            background: var(--off-white);
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .opportunity-card {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(46, 158, 31, 0.1);
+            height: 100%;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(46, 158, 31, 0.15);
+            border-color: rgba(46, 158, 31, 0.3);
+        }
+
+        .opportunity-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--logo-green-pale) 0%, var(--logo-green-soft) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .opportunity-icon i {
+            font-size: 32px;
+            color: var(--logo-green);
+        }
+
+        .opportunity-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--logo-green-dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .opportunity-desc {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .opportunity-cta {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .opportunity-cta .cta-btn {
+            display: inline-flex;
+            background: var(--logo-green-pale);
+            color: var(--logo-green-dark);
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .opportunity-cta .cta-btn:hover {
+            background: var(--logo-green-pale);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .opportunity-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .opportunity-desc {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+
+            .opportunity-cta .cta-btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
             }
         }
 
@@ -1097,15 +1253,15 @@
                     <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
                         <div class="d-flex gap-2 justify-content-start flex-wrap">
                             <div class="header_btn py-1 px-3 rounded">
-                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+919396692222">For Plant
+                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+ 919247582806">For Plant
                                     Inquiry</a>
                             </div>
                             <div class="header_btn py-1 px-3 rounded">
-                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+919396692222">For Partnership</a>
+                                <i class="fa-solid fa-square-phone"></i> <a href="tel:+ 919247582806">For Partnership</a>
                             </div>
-                            <a href="inquiry.html" class="theme-btn">Get in Touch<span
+                            <a href="./contact.html" class="theme-btn">Get in Touch<span
                                     class="icon fas fa-angle-double-right"></span></a>
-                            <a href="#" class="theme-btn">Apply Now <span
+                            <a href="./careers.html" class="theme-btn">Apply Now <span
                                     class="icon fas fa-angle-double-right"></span></a>
                         </div>
                     </div>
@@ -1145,8 +1301,7 @@
                                         <ul class="list-unstyled">
                                             <li><a class="dropdown-item" href="companyoverview.html">Company
                                                     Overview</a></li>
-                                            <li><a class="dropdown-item" href="#">Milestones</a></li>
-                                            <li><a class="dropdown-item" href="#leadership">Leadership Team</a></li>
+                                            <li><a class="dropdown-item" href="#">Leadership Team</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -1158,10 +1313,6 @@
                                             <li><a class="dropdown-item" href="cbgproductionplant.html">CBG Production
                                                     Plant</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="napiergrass.html">Napier Grass
-                                                    Cultivation</a></li>
-                                            <li><a class="dropdown-item" href="#">Green Energy
-                                                    Portfolio</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -1171,15 +1322,13 @@
                                     <div class="dropdown-menu">
                                         <ul class="list-unstyled">
                                             <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                                            <li><a class="dropdown-item" href="#">Career News</a></li>
-                                            <li><a class="dropdown-item" href="#">Press Room</a></li>
+                                            <li><a class="dropdown-item" href="careers.html">Career News</a></li>
                                             <li><a class="dropdown-item" href="gallery.html">Gallery</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="inquiry.html">Inquiry</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Join Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1189,266 +1338,298 @@
     </header>
 
     <!-- Company Overview Section -->
+
     <section class="company-overview-section reveal">
         <div class="auto-container">
             <div class="row align-items-center">
+
+
+                <!-- Image Column -->
                 <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
                     <div class="company-image animated-image">
-                        <div id="companyCarousel" class="carousel slide" data-bs-ride="carousel"
-                            data-bs-interval="5000">
-                            <!-- Indicators -->
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#companyCarousel" data-bs-slide-to="0"
-                                    class="active"></button>
-                                <button type="button" data-bs-target="#companyCarousel" data-bs-slide-to="1"></button>
-                                <button type="button" data-bs-target="#companyCarousel" data-bs-slide-to="2"></button>
-                            </div>
-
-                            <!-- Slides -->
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="./Images/CBG Plants/1.jpg"
-                                        class="d-block w-100" alt="CBG Plant - Atirath Holdings" loading="lazy">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=500&fit=crop"
-                                        class="d-block w-100" alt="Green Energy - Atirath Holdings" loading="lazy">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=500&fit=crop"
-                                        class="d-block w-100" alt="Sustainable Energy - Atirath Holdings"
-                                        loading="lazy">
-                                </div>
-                            </div>
-
-                            <!-- Controls -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#companyCarousel"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#companyCarousel"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
+                        <img src="./Images/CBG Plants/1.jpg" alt="Atirath Holdings CBG Plant" loading="lazy">
                     </div>
                 </div>
+
+                <!-- Content Column -->
                 <div class="col-lg-6 col-md-12">
                     <div class="company-desc">
                         <h2><span>Atirath Holdings</span> India Limited</h2>
-                        <p>Atirath Holdings India Limited is a forward-thinking energy company dedicated to
-                            transforming India's energy landscape through sustainable bio-gas solutions. Founded with a
-                            vision to
-                            create a greener planet, we specialize in setting up state-of-the-art Compressed Biogas
-                            (CBG) manufacturing plants across the nation.</p>
-                        <p>As a leading EPC company, we provide end-to-end solutions for CBG plant setup - from project
-                            conceptualization and feasibility studies to design, engineering, procurement, construction,
-                            and commissioning. We utilize cutting-edge technology and adhere to international standards,
-                            ensuring high-quality and efficient CBG production.</p>
-                        <p>Our mission is to produce high-quality CBG from renewable biomass sources like Napier Grass,
-                            agricultural residues, and organic waste. We are committed to creating rural livelihoods,
-                            reducing carbon emissions, and contributing to India's net-zero goals.</p>
-                        <div class="company-stats">
-                            <div class="stat-item">
-                                <div class="stat-number">2025</div>
-                                <div class="stat-label">Year Founded</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">500+</div>
-                                <div class="stat-label">TPD Capacity</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">100+</div>
-                                <div class="stat-label">Team Members</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">50+</div>
-                                <div class="stat-label">Acres Cultivated</div>
-                            </div>
-                        </div>
+
+
+                        <p>
+                            As part of its long-term vision, Atirath Holdings aims to establish
+                            <strong>50 Compressed Biogas (CBG) Plants</strong> with a combined processing capacity of
+                            <strong>1000 TPD</strong> across the states of Andhra Pradesh and Telangana, with an
+                            initial target of 500 TPD in each state.
+                        </p>
+
+                        <p>
+                            The company is actively progressing strategic collaborations and Memorandums of
+                            Understanding (MoUs) with the Governments of Andhra Pradesh and Telangana to strengthen the
+                            clean energy ecosystem.
+                        </p>
+
+                        <p>
+                            Aligned with the <strong>Viksit Bharat</strong> vision of the Government of India, Atirath
+                            Holdings is dedicated to promoting rural prosperity, generating sustainable livelihoods,
+                            reducing carbon emissions, and contributing to India's long-term net-zero and energy
+                            independence goals.
+                        </p>
                     </div>
                 </div>
+
             </div>
         </div>
+
+
     </section>
 
+
     <!-- Vision & Mission Section -->
+
     <section class="vision-mission-section reveal">
         <div class="auto-container">
             <div class="section-header">
                 <h2>Vision & Mission</h2>
             </div>
             <div class="row">
+
+                <!-- Vision -->
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="vision-card">
-                        <div class="card-icon">
-                            <i class="fas fa-eye"></i>
+                        <div class="card-header-custom">
+                            <div class="card-icon"> <i class="fas fa-eye"></i> </div>
+                            <h3>Our Vision</h3>
                         </div>
-                        <h3>Our Vision</h3>
+
                         <div class="vision-text">
-                            <p>To be India's most trusted and innovative clean energy company, leading the transition
-                                towards a sustainable, carbon-neutral future by making Compressed Biogas accessible,
-                                affordable, and abundant for all.</p>
+                            <p>
+                                To emerge as India's leading clean energy infrastructure company by
+                                developing world-class Compressed Biogas (CBG) ecosystems, driving
+                                the nation's transition towards energy independence, carbon neutrality,
+                                and a sustainable future in alignment with the Viksit Bharat vision.
+                            </p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Mission -->
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="mission-card">
-                        <div class="card-icon">
-                            <i class="fas fa-bullseye"></i>
+                        <div class="card-header-custom">
+                            <div class="card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3>Our Mission</h3>
                         </div>
-                        <h3>Our Mission</h3>
+
+
                         <div class="mission-text">
-                            <p>To transform organic waste into valuable energy resources through cutting-edge
-                                technology, create sustainable livelihoods in rural communities, reduce India's
-                                dependency on fossil fuels, and contribute to a cleaner, greener planet for future
-                                generations.</p>
+                            <p>
+                                To establish 50 large-scale CBG plants across Andhra Pradesh and
+                                Telangana, transform agricultural and organic waste into clean
+                                renewable energy, empower rural communities, create sustainable
+                                livelihoods, and contribute significantly towards India's net-zero
+                                and energy security goals.
+                            </p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+
     <!-- Core Values Section -->
+
     <section class="core-values-section reveal">
         <div class="auto-container">
             <div class="section-header">
                 <h2>Our Core Values</h2>
             </div>
             <div class="values-grid">
+
+                <!-- Sustainability -->
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h4>Sustainability</h4>
-                    <div class="value-description">We are committed to environmental stewardship and sustainable
-                        practices in everything we do, ensuring a greener future for generations to come.</div>
+                    <div class="value-description">
+                        We are committed to building a cleaner and greener future by promoting renewable energy,
+                        reducing carbon emissions, and fostering sustainable environmental practices.
+                    </div>
                 </div>
+
+                <!-- Innovation -->
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h4>Innovation</h4>
-                    <div class="value-description">We embrace cutting-edge technology and continuous improvement to
-                        deliver efficient, cost-effective clean energy solutions.</div>
+                    <div class="value-description">
+                        We leverage advanced technologies, modern engineering practices, and continuous innovation to
+                        deliver world-class bio-energy infrastructure solutions.
+                    </div>
                 </div>
+
+                <!-- Integrity -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Integrity</h4>
+                    <div class="value-description">
+                        We uphold the highest standards of transparency, ethics, and accountability in every
+                        relationship, fostering long-term trust among stakeholders.
+                    </div>
+                </div>
+
+                <!-- Collaboration -->
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h4>Integrity</h4>
-                    <div class="value-description">We conduct business with transparency, honesty, and ethical
-                        practices, building trust with partners, clients, and communities.</div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
                     <h4>Collaboration</h4>
-                    <div class="value-description">We believe in the power of partnerships - working together with
-                        farmers, entrepreneurs, and government bodies to achieve shared goals.</div>
+                    <div class="value-description">
+                        We believe in strategic partnerships and collaborative growth by working closely with
+                        governments, farmers, investors, and technology partners.
+                    </div>
                 </div>
+
+                <!-- Excellence -->
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-award"></i>
                     </div>
                     <h4>Excellence</h4>
-                    <div class="value-description">We strive for excellence in quality, service, and execution,
-                        delivering nothing but the best to our stakeholders.</div>
+                    <div class="value-description">
+                        We strive for excellence in engineering, project execution, quality, and operational
+                        performance, ensuring superior value for all stakeholders.
+                    </div>
                 </div>
+
+                <!-- Rural Empowerment -->
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-tractor"></i>
                     </div>
-                    <h4>Social Responsibility</h4>
-                    <div class="value-description">We are dedicated to creating rural employment, empowering farmers,
-                        and contributing positively to the communities we serve.</div>
+                    <h4>Rural Empowerment</h4>
+                    <div class="value-description">
+                        We are dedicated to empowering rural communities by generating sustainable livelihoods,
+                        supporting farmers, and creating inclusive economic growth.
+                    </div>
                 </div>
+
+                <!-- Energy Security -->
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Energy Security</h4>
+                    <div class="value-description">
+                        We are committed to strengthening India's energy independence by developing sustainable and
+                        indigenous clean fuel infrastructure that reduces dependence on fossil fuels.
+                    </div>
+                </div>
+
+                <!-- Nation Building -->
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h4>Nation Building</h4>
+                    <div class="value-description">
+                        We align our initiatives with the Viksit Bharat vision, contributing towards national
+                        development through clean energy, rural prosperity, employment generation, and environmental
+                        stewardship.
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
 
-    <!-- Milestones Section -->
-    <section id="milestones" class="milestones-section reveal">
+    <!-- Opportunity to Aspiring Entrepreneurs Section -->
+    <section class="opportunity-section reveal">
         <div class="auto-container">
             <div class="section-header">
-                <h2>Our Journey</h2>
+                <h2>Opportunity to Aspiring Entrepreneurs</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-title">Company Founded</div>
-                        <div class="timeline-text">Atirath Holdings India Limited was established with a vision to
-                            revolutionize India's clean energy sector through CBG technology.</div>
+            <p style="text-align:center; max-width:800px; margin:0 auto 30px; color:var(--gray-text); font-size:1.05rem; line-height:1.8;">
+                Atirath Holdings invites passionate and driven entrepreneurs to join India's clean energy revolution.
+                Partner with us to build a sustainable future while creating lasting impact in rural communities.
+            </p>
+            <div class="opportunity-grid">
+
+                <!-- Partnership -->
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Strategic Partnerships</h4>
+                    <div class="opportunity-desc">
+                        Collaborate with Atirath Holdings as a strategic partner to establish CBG plants across Andhra
+                        Pradesh and Telangana. Leverage our technical expertise, project management capabilities, and
+                        government partnerships to build a profitable clean energy venture.
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-title">First CBG Plant Project</div>
-                        <div class="timeline-text">Commenced our first CBG manufacturing plant project in Telangana,
-                            marking our entry into renewable energy production.</div>
+
+                <!-- Franchise -->
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <h4>CBG Plant Franchise</h4>
+                    <div class="opportunity-desc">
+                        Become a franchise partner and set up your own CBG production facility under the Atirath brand.
+                        Benefit from our proven business model, technical support, feedstock supply chain, and
+                        SATAT-aligned offtake agreements.
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-title">SATAT Scheme Partnership</div>
-                        <div class="timeline-text">Became an official partner under Government of India's SATAT scheme
-                            for CBG plant setup across the nation.</div>
+
+                <!-- Supplier -->
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4>Feedstock Supply Network</h4>
+                    <div class="opportunity-desc">
+                        Join our supply chain as a feedstock aggregator. Source and supply agricultural residues,
+                        Napier Grass, and organic waste to our CBG plants. Build a sustainable business while
+                        supporting rural farmers and waste management.
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-title">Napier Grass Cultivation</div>
-                        <div class="timeline-text">Launched large-scale Napier Grass cultivation program across 50+
-                            acres, empowering local farmers.</div>
+
+                <!-- Franchise -->
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h4>CBG Retail Outlet</h4>
+                    <div class="opportunity-desc">
+                        Establish CBG retail outlets and become a part of India's growing clean fuel ecosystem. With
+                        increasing demand for sustainable fuels, this is the perfect opportunity to build a future-ready
+                        business.
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2026</div>
-                        <div class="timeline-title">Expansion Across India</div>
-                        <div class="timeline-text">Expanded operations to multiple states including Maharashtra, Uttar
-                            Pradesh, and Karnataka.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2026</div>
-                        <div class="timeline-title">500+ TPD Capacity</div>
-                        <div class="timeline-text">Achieved cumulative CBG production capacity of over 500 TPD across
-                            our operational plants.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">2026</div>
-                        <div class="timeline-title">100+ Rural Jobs Created</div>
-                        <div class="timeline-text">Created sustainable employment opportunities for over 100 rural
-                            households through our operations.</div>
-                    </div>
-                </div>
+
             </div>
-            <div class="section-btn-wrapper">
-                <a href="#" class="section-btn">
-                    View More <i class="fas fa-arrow-right"></i>
+
+            <div class="opportunity-cta">
+                <a href="./contact.html" class="cta-btn">
+                    <i class="fas fa-rocket"></i> Explore Opportunities
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
+
 
     <!-- Leadership Section -->
     <!-- <section id="leadership" class="leadership-section reveal">
@@ -1514,19 +1695,6 @@
         </div>
     </section> -->
 
-    <!-- CTA Section -->
-    <div class="cta-section">
-        <div class="auto-container">
-            <div class="row">
-                <div class="col-12">
-                    <h2>Ready to Partner with Us?</h2>
-                    <p>Join India's green energy revolution. Partner with Atirath Holdings for a sustainable and
-                        profitable future.</p>
-                    <a href="inquiry.html" class="cta-btn">Get in Touch <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="ft1-main-footer">
@@ -1594,7 +1762,7 @@
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/919396692222?text=Hello%20Atirath%20Holdings%2C%20I'm%20interested%20in%20your%20CBG%20projects."
+    <a href="https://wa.me/ 919247582806?text=Hello%20Atirath%20Holdings%2C%20I'm%20interested%20in%20your%20CBG%20projects."
         class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
